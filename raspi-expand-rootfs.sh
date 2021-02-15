@@ -53,6 +53,11 @@ case "\$1" in
     ;;
 esac
 EOF
+
+echo "Mounting newly created partition"
+sudo mount /dev/mmcblk0p2 /media/usb
+
 chmod +x /etc/init.d/resize2fs_once &&
 update-rc.d resize2fs_once defaults &&
 echo "Root partition has been resized. The filesystem will be enlarged upon the next reboot"
+
